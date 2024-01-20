@@ -9,6 +9,25 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+// Adding function to the Book prototype such that each button will have the toggle read function
+Book.prototype.toggleRead = function(){
+    this.read = !this.read;
+}
+
+// Toggle between read and unread
+function toggleRead(index){
+    myLibrary[index].toggleRead();
+    display();
+    console.log(myLibrary);
+}
+
+document.addEventListener('click', function(event){
+    if (event.target && event.target.className === 'read-button') {
+        let index = event.target.dataset.index; // Get the index
+        toggleRead(index);
+    }
+});
+
 // Display the books in the page
 function display(){
     let library = document.querySelector(".book-container");
@@ -24,17 +43,22 @@ function display(){
         bookAuthor.innerText = book.author;
         let bookPages = document.createElement('p');
         bookPages.innerText = book.pages;
-        let bookRead = document.createElement('p');
+        let bookRead = document.createElement('button');
+        bookRead.className = "read-button";
+        bookRead.dataset.index = i;
+        if (book.read == true){
+            bookRead.innerText = "Read";
+            bookRead.style.backgroundColor = 'hsl(145, 100%, 45%)'; 
+        }
+        else{
+            bookRead.innerText = "Not read";
+            bookRead.style.backgroundColor = '#ff4b4b' 
+        }
         let removeButton = document.createElement('button');
         removeButton.innerText = "Remove";
         removeButton.className = "remove-button";
         removeButton.dataset.index = i;
-        if (book.read == true){
-            bookRead.innerText = "Read already";
-        }
-        else{
-            bookRead.innerText = "Not read yet";
-        }
+
         bookWrapper.appendChild(bookName);
         bookWrapper.appendChild(bookAuthor);
         bookWrapper.appendChild(bookPages);

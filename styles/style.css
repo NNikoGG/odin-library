@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root{
+    --green: hsl(145, 100%, 45%);
+    --red: #ff4b4b;
+    --white: #ffffff;
+    --grey: #e2e8f0;
+    --black: #121212;
+    --lightblack: hsl(0, 0%, 20%);
+    --shadow: rgba(0, 0, 0, 0.50) 0px 1px 4px;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -13,10 +23,33 @@
     align-items: center;
 }
 
+.add-book-button-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100vw;
+    box-shadow: var(--shadow);
+}
+
+#add-book-button{
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: var(--lightblack);
+    padding: 20px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
 .book-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    place-content: center;
     gap: 20px;
+    padding: 20px;
+    margin: 20px;
 }
 
 .book-container > div{
@@ -24,13 +57,14 @@
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    border: 1px solid #121212;
+    border: none;
     background-color: #ffffff;
     padding: 20px;
     font-size: 20px;
     font-weight: 500;
     height: 300px;
     width: 300px;
+    box-shadow: var(--shadow);
 }
 
 .book-container > div > p{
@@ -42,23 +76,6 @@
 .book{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-}
-
-.add-book-button-container{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-#add-book-button{
-    font-size: 20px;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #1992d4;
-    padding: 20px;
-    border: none;
-    border-radius: 24px;
-    cursor: pointer;
 }
 
 #book-form{
@@ -80,7 +97,7 @@
 }
 
 #submit-button{
-    background-color: #7fff6e;
+    background-color: var(--green);
     border: none;
     border-radius: 12px;
     color: #121212;
@@ -104,13 +121,25 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.remove-button{
+.read-button{
     font-size: 14px;
     font-weight: 500;
     color: #ffffff;
-    background-color: hsl(0, 0%, 45%);
     padding: 10px;
     border: none;
     border-radius: 24px;
     cursor: pointer;
 }
+
+.remove-button{
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: var(--lightblack);
+    padding: 10px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+
